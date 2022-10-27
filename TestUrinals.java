@@ -138,4 +138,11 @@ public class TestUrinals {
         urinals urinal = new urinals();
         Assertions.assertEquals(-1, urinal.findMaxNumFromConstructedString());
     }
+    /*The following tests the readFile method to see if it will
+     * fail to read the data file.*/
+    @Test
+    public void testReadFile() {
+        urinals urinal = new urinals();
+        Assertions.assertFalse(urinal.readFile(""));
+    }
 }

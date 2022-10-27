@@ -21,6 +21,11 @@ public class urinals {
         constructedString = constructedString + str;
         return true;
     }
+    public boolean readFile(String fileName)
+    {
+        System.out.println("Not implemented yet.");
+        return true;
+    }
     public boolean lookForResultsFile(String fileName) // Opens specified file for incrementing results.txt files.
     {
         try
