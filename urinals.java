@@ -39,6 +39,10 @@ public class urinals {
         int currentOnes = 0;
         int length = 0;
         char[] constructedStringChars = constructedString.toCharArray();
+        if(constructedString.length() == 0)
+        {
+            return -1;
+        }
         if(constructedString.length() == 1)
         {
             if(constructedStringChars[0] == '1')
