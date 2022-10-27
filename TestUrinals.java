@@ -146,11 +146,19 @@ public class TestUrinals {
         Assertions.assertFalse(urinal.readFile(""));
     }
     /*The following tests the readFile method to see if it will
-     * fail to read the data file.*/
+     * successfully read the data file and build the corresponding string.*/
     @Test
     public void testReadFileBuildString() {
         urinals urinal = new urinals();
         Assertions.assertTrue(urinal.readFile("testurinal1.dat"));
+        Assertions.assertEquals("000", urinal.constructedString);
+    }
+    /*The following tests the readFile method to see if it will
+     * read the data file up to an unusual character (e.g. -1).*/
+    @Test
+    public void testReadFileCharacterBreak() {
+        urinals urinal = new urinals();
+        Assertions.assertTrue(urinal.readFile("testurinal2.dat"));
         Assertions.assertEquals("000", urinal.constructedString);
     }
 }
