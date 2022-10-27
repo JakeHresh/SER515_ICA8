@@ -145,4 +145,12 @@ public class TestUrinals {
         urinals urinal = new urinals();
         Assertions.assertFalse(urinal.readFile(""));
     }
+    /*The following tests the readFile method to see if it will
+     * fail to read the data file.*/
+    @Test
+    public void testReadFileBuildString() {
+        urinals urinal = new urinals();
+        Assertions.assertTrue(urinal.readFile("testurinal1.dat"));
+        Assertions.assertEquals("000", urinal.constructedString);
+    }
 }
