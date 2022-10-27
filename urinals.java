@@ -3,7 +3,7 @@
  * */
 
 public class urinals {
-    public String constructedString;
+    public String constructedString = "";
     public static void main(String args[])
     {
         System.out.println("Hello!");
@@ -14,6 +14,7 @@ public class urinals {
         {
             return false;
         }
+        constructedString = constructedString + str;
         return true;
     }
 }
