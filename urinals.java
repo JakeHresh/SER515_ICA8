@@ -2,6 +2,10 @@
  * Author: Jacob Hreshchyshyn
  * */
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
 public class urinals {
     public String constructedString = "";
     public static void main(String args[])
@@ -19,8 +23,15 @@ public class urinals {
     }
     public boolean lookForResultsFile(String fileName) // Opens specified file for incrementing results.txt files.
     {
-        System.out.println("Not yet implemented");
-        return true;
+        try
+        {
+            new BufferedReader(new FileReader(fileName));
+            return true;
+        }
+        catch (FileNotFoundException e)
+        {
+            return false;
+        }
     }
 }
 // Read from file or input string occupied urinals (1 means occupied. 0 means unoccupied.)
