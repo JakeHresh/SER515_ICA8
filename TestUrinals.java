@@ -111,4 +111,15 @@ public class TestUrinals {
         urinal.buildString("1");
         Assertions.assertEquals(3, urinal.findMaxNumFromConstructedString());
     }
+    /*The following tests the findMaxNumFromConstructedString method to see if it will
+     * produce the correct maximum number from the string of 1's and 0's that has a length of 1.*/
+    @Test
+    public void testFindMaxNumFromConstructedStringWithOccupancySmall() {
+        urinals urinal = new urinals();
+        urinal.buildString("0");
+        Assertions.assertEquals(1, urinal.findMaxNumFromConstructedString());
+        urinal.constructedString = "";
+        urinal.buildString("1");
+        Assertions.assertEquals(0, urinal.findMaxNumFromConstructedString());
+    }
 }
