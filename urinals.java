@@ -5,6 +5,7 @@
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class urinals {
     public String constructedString = "";
@@ -23,13 +24,24 @@ public class urinals {
     }
     public boolean readFile(String fileName)
     {
+        BufferedReader file;
         try
         {
-            new BufferedReader(new FileReader(fileName));
+            file = new BufferedReader(new FileReader(fileName));
+            String line;
+            while((line = file.readLine()) != null)
+            {
+                if(!buildString(line))
+                {
+                    break;
+                }
+            }
             return true;
         }
         catch (FileNotFoundException e)
         {
+            return false;
+        } catch (IOException e) {
             return false;
         }
     }
