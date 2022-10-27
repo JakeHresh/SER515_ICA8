@@ -49,4 +49,16 @@ public class TestUrinals {
         Assertions.assertFalse(urinal.lookForResultsFile("TestResults.txt"));
         Assertions.assertTrue(urinal.lookForResultsFile("TestResultsWorking.txt"));
     }
+    /*The following tests the findMaxNumFromConstructedString method to see if it will
+     * produce the correct maximum number from the string of 1's and 0's.*/
+    @Test
+    public void testFindMaxNumFromConstructedString() {
+        urinals urinal = new urinals();
+        urinal.buildString("0");
+        urinal.buildString("0");
+        urinal.buildString("0");
+        urinal.buildString("0");
+        urinal.buildString("0");
+        Assertions.assertEquals(3, urinal.findMaxNumFromConstructedString());
+    }
 }
