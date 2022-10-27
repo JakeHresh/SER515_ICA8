@@ -108,10 +108,6 @@ public class urinals {
                 }
             }
         }
-        for(int i = 0; i < constructedString.length(); i++)
-        {
-            System.out.println(constructedStringChars[i]);
-        }
         return maxNum - currentOnes;
     }
 }
