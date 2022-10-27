@@ -37,6 +37,7 @@ public class urinals {
     {
         int maxNum = 0;
         int currentOnes = 0;
+        int length = 0;
         char[] constructedStringChars = constructedString.toCharArray();
         if(constructedString.length() == 1)
         {
@@ -64,7 +65,15 @@ public class urinals {
                 currentOnes++;
             }
         }
-        for(int i = 0; i < constructedString.length()/2 + 1; i++)
+        if(constructedString.length() % 2 == 0)
+        {
+            length = constructedString.length()/2;
+        }
+        else
+        {
+            length = constructedString.length()/2 + 1;
+        }
+        for(int i = 0; i < length; i++)
         {
             if(i == 0)
             {
