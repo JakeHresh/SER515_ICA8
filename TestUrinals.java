@@ -47,5 +47,6 @@ public class TestUrinals {
     public void testLookForResultsFile() {
         urinals urinal = new urinals();
         Assertions.assertFalse(urinal.lookForResultsFile("TestResults.txt"));
+        Assertions.assertTrue(urinal.lookForResultsFile("TestResultsWorking.txt"));
     }
 }
