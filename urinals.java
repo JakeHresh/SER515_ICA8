@@ -8,7 +8,7 @@ import java.io.FileReader;
 
 public class urinals {
     public String constructedString = "";
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         System.out.println("Hello!");
     }
@@ -35,12 +35,75 @@ public class urinals {
     }
     public int findMaxNumFromConstructedString() // Returns the maximum number of occupants from constructedString of 1's and 0's.
     {
-        int length = constructedString.length();
-        if(length % 2 == 1)
+        int maxNum = 0;
+        int currentOnes = 0;
+        char[] constructedStringChars = constructedString.toCharArray();
+        if(constructedString.length() == 1)
         {
-            length++;
+            if(constructedStringChars[0] == '1')
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
         }
-        return length/2;
+        // Check for adjacent 1's in the string
+        for(int i = 0; i < constructedString.length() - 1; i++)
+        {
+            if(constructedStringChars[i] == '1' && constructedStringChars[i + 1] == '1')
+            {
+                return -1;
+            }
+        }
+        for(int i = 0; i < constructedString.length(); i++)
+        {
+            if(constructedStringChars[i] == '1')
+            {
+                currentOnes++;
+            }
+        }
+        for(int i = 0; i < constructedString.length()/2 + 1; i++)
+        {
+            if(i == 0)
+            {
+                if(constructedStringChars[i + 1] == '0')
+                {
+                    maxNum++;
+                    constructedStringChars[i] = '1';
+                }
+            }
+            else
+            {
+                if(constructedStringChars[i + 1] == '0' && constructedStringChars[i - 1] == '0')
+                {
+                    maxNum++;
+                    constructedStringChars[i] = '1';
+                }
+            }
+            if(constructedString.length() - 1 - i == constructedString.length() - 1)
+            {
+                if(constructedStringChars[constructedString.length() - 2 - i] == '0')
+                {
+                    maxNum++;
+                    constructedStringChars[constructedString.length() - 1 - i] = '1';
+                }
+            }
+            else
+            {
+                if(constructedStringChars[constructedString.length() - 2 - i] == '0' && constructedStringChars[constructedString.length() - i] == '0' && constructedString.length() - 1 - i != i)
+                {
+                    maxNum++;
+                    constructedStringChars[constructedString.length() - 1 - i] = '1';
+                }
+            }
+        }
+        for(int i = 0; i < constructedString.length(); i++)
+        {
+            System.out.println(constructedStringChars[i]);
+        }
+        return maxNum - currentOnes;
     }
 }
 // Read from file or input string occupied urinals (1 means occupied. 0 means unoccupied.)
