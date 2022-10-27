@@ -10,7 +10,10 @@ public class urinals {
     }
     public boolean buildString(String str) // Builds string to test from characters read by keyboard or file.
     {
-        System.out.println("Not yet implemented");
+        if(!str.equals("1") && !str.equals("0"))
+        {
+            return false;
+        }
         return true;
     }
 }
