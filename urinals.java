@@ -17,6 +17,11 @@ public class urinals {
         constructedString = constructedString + str;
         return true;
     }
+    public boolean lookForResultsFile(String fileName) // Opens specified file for incrementing results.txt files.
+    {
+        System.out.println("Not yet implemented");
+        return true;
+    }
 }
 // Read from file or input string occupied urinals (1 means occupied. 0 means unoccupied.)
 // e.g. 10001 returns the number 3, meaning 3 is the highest number of people who can occupy the urinals.

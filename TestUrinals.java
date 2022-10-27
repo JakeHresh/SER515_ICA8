@@ -41,4 +41,11 @@ public class TestUrinals {
         }
         Assertions.assertFalse(urinal.buildString("1"));
     }
+    /*The following tests the lookForResultsFile method to see if it will
+     * fail at finding the specified file.*/
+    @Test
+    public void testLookForResultsFile() {
+        urinals urinal = new urinals();
+        Assertions.assertFalse(urinal.lookForResultsFile("TestResults.txt"));
+    }
 }
