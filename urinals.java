@@ -35,8 +35,12 @@ public class urinals {
     }
     public int findMaxNumFromConstructedString() // Returns the maximum number of occupants from constructedString of 1's and 0's.
     {
-        System.out.println("Not yet implemented.");
-        return -1;
+        int length = constructedString.length();
+        if(length % 2 == 1)
+        {
+            length++;
+        }
+        return length/2;
     }
 }
 // Read from file or input string occupied urinals (1 means occupied. 0 means unoccupied.)
