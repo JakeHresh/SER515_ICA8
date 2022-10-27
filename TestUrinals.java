@@ -73,4 +73,15 @@ public class TestUrinals {
         urinal.buildString("1");
         Assertions.assertEquals(1, urinal.findMaxNumFromConstructedString());
     }
+    /*The following tests the findMaxNumFromConstructedString method to see if it will
+     * produce the correct maximum number from the string of 1's and 0's that has an evenly-numbered length.*/
+    @Test
+    public void testFindMaxNumFromConstructedStringWithOccupancyEven() {
+        urinals urinal = new urinals();
+        urinal.buildString("1");
+        urinal.buildString("0");
+        urinal.buildString("0");
+        urinal.buildString("1");
+        Assertions.assertEquals(0, urinal.findMaxNumFromConstructedString());
+    }
 }
