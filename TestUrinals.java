@@ -30,4 +30,15 @@ public class TestUrinals {
         urinal.buildString("0");
         Assertions.assertEquals("10", urinal.constructedString);
     }
+    /*The following tests the buildString method to see if it will
+     * properly build a string of 1's and 0's.*/
+    @Test
+    public void testBuildStringNotTooLarge() {
+        urinals urinal = new urinals();
+        for(int i = 0; i < 20; i++)
+        {
+            urinal.buildString("1");
+        }
+        Assertions.assertFalse(urinal.buildString("1"));
+    }
 }
