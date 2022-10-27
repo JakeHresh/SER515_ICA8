@@ -23,8 +23,15 @@ public class urinals {
     }
     public boolean readFile(String fileName)
     {
-        System.out.println("Not implemented yet.");
-        return true;
+        try
+        {
+            new BufferedReader(new FileReader(fileName));
+            return true;
+        }
+        catch (FileNotFoundException e)
+        {
+            return false;
+        }
     }
     public boolean lookForResultsFile(String fileName) // Opens specified file for incrementing results.txt files.
     {
