@@ -40,8 +40,7 @@ public class urinals {
         else
         {
             urinal.readFile("urinal.dat");
-            String resultsName = "rule";
-
+            urinal.writeFile("rule", urinal);
         }
     }
     public boolean writeFile(String fileName, urinals urinal)
