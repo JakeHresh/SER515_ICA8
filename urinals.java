@@ -43,20 +43,20 @@ public class urinals {
 
         }
     }
-    public boolean writeFile(String fileName, urinals urinal)
+    public boolean writeFile(String fileName)
     {
         int fileDex = 0;
         String resultsName = "rule";
         System.out.println("If the output file has a -1, make sure that the string you provided has no adjacent occupancies and that the string is not empty.");
-        if(urinal.lookForResultsFile(resultsName + ".txt"))
+        if(lookForResultsFile(resultsName + ".txt"))
         {
             fileDex++;
-            while(urinal.lookForResultsFile(resultsName + fileDex))
+            while(lookForResultsFile(resultsName + fileDex))
             {
                 fileDex++;
             }
         }
-        return true;
+        return false;
     }
     public boolean buildString(String str) // Builds string to test from characters read by keyboard or file.
     {

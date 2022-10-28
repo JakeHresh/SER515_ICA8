@@ -161,4 +161,13 @@ public class TestUrinals {
         Assertions.assertTrue(urinal.readFile("testurinal2.dat"));
         Assertions.assertEquals("000", urinal.constructedString);
     }
+    /*The following tests the writeFile method to see if it will
+     * write the data to the correct file location.
+     * BE SURE TO DELETE ANY CREATED FILES.*/
+    @Test
+    public void testWriteFile() {
+        urinals urinal = new urinals();
+        urinal.buildString("1");
+        Assertions.assertTrue(urinal.writeFile("testResults.txt"));
+    }
 }
