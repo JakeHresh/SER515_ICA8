@@ -167,7 +167,15 @@ public class TestUrinals {
     @Test
     public void testWriteFile() {
         urinals urinal = new urinals();
-        urinal.buildString("1");
-        Assertions.assertTrue(urinal.writeFile("testResults.txt"));
+        urinal.buildString("0");
+        Assertions.assertTrue(urinal.writeFile("resultsTest", urinal));
+    }
+    /*The following tests the writeFile method to see if it will
+     * gracefully handle errors*/
+    @Test
+    public void testWriteFileError() {
+        urinals urinal = new urinals();
+        urinal.buildString("0");
+        Assertions.assertFalse(urinal.writeFile("#%&{}<>*?$!+`|", urinal));
     }
 }

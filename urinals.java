@@ -5,6 +5,7 @@
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -39,24 +40,43 @@ public class urinals {
         else
         {
             urinal.readFile("urinal.dat");
-
+            String resultsName = "rule";
 
         }
     }
-    public boolean writeFile(String fileName)
+    public boolean writeFile(String fileName, urinals urinal)
     {
         int fileDex = 0;
-        String resultsName = "rule";
+
         System.out.println("If the output file has a -1, make sure that the string you provided has no adjacent occupancies and that the string is not empty.");
-        if(lookForResultsFile(resultsName + ".txt"))
+        if(lookForResultsFile(fileName + ".txt"))
         {
             fileDex++;
-            while(lookForResultsFile(resultsName + fileDex))
+            while(lookForResultsFile(fileName + fileDex + ".txt"))
             {
                 fileDex++;
             }
         }
-        return false;
+        try
+        {
+            String name = "";
+            if(fileDex == 0)
+            {
+                name = fileName + ".txt";
+            }
+            else
+            {
+                name = fileName + fileDex + ".txt";
+            }
+            FileWriter fileWriter = new FileWriter(name);
+            System.out.println(urinal.findMaxNumFromConstructedString());
+            fileWriter.write("" + urinal.findMaxNumFromConstructedString());
+            fileWriter.close();
+            return true;
+        } catch (Exception e)
+        {
+            return false;
+        }
     }
     public boolean buildString(String str) // Builds string to test from characters read by keyboard or file.
     {
