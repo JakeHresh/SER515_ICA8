@@ -6,12 +6,57 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class urinals {
     public String constructedString = "";
+    public static boolean isKeyboard = true;
     public static void main(String[] args)
     {
-        System.out.println("Hello!");
+        System.out.println("Welcome to the program! Please indicate whether you will read input via keyboard or via file.");
+        System.out.println("Press 1 for Keyboard");
+        System.out.println("Press 2 for File");
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine();
+        while (!input.equals("1") && !input.equals("2"))
+        {
+            System.out.println("Press 1 for Keyboard");
+            System.out.println("Press 2 for File");
+            input = scan.nextLine();
+        }
+        if(input.equals("2"))
+        {
+            isKeyboard = false;
+        }
+        urinals urinal = new urinals();
+        if(isKeyboard)
+        {
+            System.out.println("Please input a 1 or a 0 followed by the enter key. Enter -1 when finished. You may enter up to 20 1's and 0's.");
+            while (urinal.buildString(scan.nextLine()));
+            System.out.println("If the output is a -1, make sure that the string you provided has no adjacent occupancies and that the string is not empty.");
+            System.out.println("The maximum number is: " + urinal.findMaxNumFromConstructedString());
+        }
+        else
+        {
+            urinal.readFile("urinal.dat");
+
+
+        }
+    }
+    public boolean writeFile(String fileName, urinals urinal)
+    {
+        int fileDex = 0;
+        String resultsName = "rule";
+        System.out.println("If the output file has a -1, make sure that the string you provided has no adjacent occupancies and that the string is not empty.");
+        if(urinal.lookForResultsFile(resultsName + ".txt"))
+        {
+            fileDex++;
+            while(urinal.lookForResultsFile(resultsName + fileDex))
+            {
+                fileDex++;
+            }
+        }
+        return true;
     }
     public boolean buildString(String str) // Builds string to test from characters read by keyboard or file.
     {
